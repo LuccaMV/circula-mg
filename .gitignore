@@ -1,0 +1,69 @@
+# ---------- dependências ----------
+node_modules/
+.pnp
+.pnp.js
+
+# ---------- build ----------
+dist/
+dist-ssr/
+build/
+*.local
+
+# ---------- variáveis de ambiente ----------
+# Nunca versionar. Use .env.example como modelo.
+.env
+.env.*
+!.env.example
+
+# ---------- credenciais e chaves ----------
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+service-account*.json
+secrets.*
+.npmrc
+.netrc
+
+# ---------- plataformas ----------
+.vercel/
+.netlify/
+
+# ---------- caches e logs ----------
+.cache/
+.parcel-cache/
+.eslintcache
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vite/
+
+# ---------- ferramentas locais ----------
+# Preferências da máquina, não do projeto. launch.json fica versionado.
+.claude/settings.local.json
+
+# ---------- editores ----------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------- sistema operacional ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- material de trabalho local ----------
+# Documentos do projeto de qualificação não entram no repositório público.
+*.docx
+*.pdf
+
+# Análise interna de segurança: fica na máquina, não no repositório.
+SEGURANCA-INTERNO.md

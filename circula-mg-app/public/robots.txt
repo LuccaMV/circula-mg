@@ -1,0 +1,15 @@
+# Circula·MG — protótipo de pesquisa.
+#
+# Enquanto os dados exibidos forem simulados, o site não deve aparecer
+# em buscadores: os indicadores levam o rótulo da UNIFAL-MG e podem ser
+# lidos como números oficiais da universidade.
+#
+# Isto é um pedido, não uma barreira: robots.txt não impede acesso nem
+# esconde nada. A recusa efetiva de indexação vem do cabeçalho
+# X-Robots-Tag: noindex, definido em vercel.json.
+#
+# Não listamos rotas aqui de propósito — um robots.txt com a lista de
+# caminhos funciona como mapa para quem quiser explorá-los.
+
+User-agent: *
+Disallow: /

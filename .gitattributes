@@ -1,0 +1,21 @@
+# Normaliza fim de linha no repositório (LF), preservando o do disco.
+# Evita diffs falsos quando o projeto circula entre Windows, macOS e Linux.
+* text=auto eol=lf
+
+# Binários — nunca converter.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+
+# Não contar no diff nem na estatística de linguagem do GitHub.
+package-lock.json linguist-generated=true -diff
+circula-mg-app/standalone/* linguist-vendored=true
+docs/brand-board-unifal.html linguist-documentation=true

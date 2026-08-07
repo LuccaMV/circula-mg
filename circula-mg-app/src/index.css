@@ -1,0 +1,167 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #F7F7F7;
+}
+* { box-sizing: border-box; }
+
+/* Tipografia institucional da UNIFAL-MG. Sem isto, qualquer elemento
+   sem font-family explícita cai no serifado padrão do navegador. */
+body {
+  font-family: 'Jost', system-ui, sans-serif;
+  color: #222222;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: 'Poppins', system-ui, sans-serif; }
+
+select:focus, input:focus, textarea:focus { outline: 2px solid #08378055; }
+button:focus-visible,
+a:focus-visible { outline: 2px solid #083780; outline-offset: 2px; border-radius: 2px; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #E8E8E8; border-radius: 10px; }
+
+/* ============================================================
+   Botão de destaque — "pressionável"
+   Base: Uiverse.io / cssbuttons-io. Adaptado:
+   - escopado em classe (o original era um seletor global `button`,
+     que atingiria chips de filtro, abas e botões de fechar);
+   - cores trocadas pela paleta institucional da UNIFAL-MG;
+   - tipografia Roboto Condensed, como os botões do portal;
+   - `position: relative` explícito (o original dependia do
+     containing block criado por acaso pelo `translateZ(0)`);
+   - foco visível restaurado (o original zerava o outline).
+
+   Uso restrito à ação principal de cada tela. Ver docs/04 §4.9.
+   ============================================================ */
+.cmg-btn-3d {
+  --face: #083780;
+  --lip: #041C4C;
+  --texto: #ffffff;
+
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--face);
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: var(--texto);
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  overflow: visible;
+  padding: 13px 22px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.cmg-btn-3d::after {
+  background-clip: padding-box;
+  background-color: var(--lip);
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.cmg-btn-3d:hover:not(:disabled) { filter: brightness(1.16); }
+.cmg-btn-3d:active:not(:disabled) { padding-bottom: 10px; }
+.cmg-btn-3d:active:not(:disabled)::after { border-width: 0; }
+.cmg-btn-3d:disabled { cursor: auto; filter: grayscale(.5) opacity(.6); }
+
+.cmg-btn-3d:focus-visible {
+  outline: 3px solid var(--face);
+  outline-offset: 3px;
+}
+
+/* Variante para fundo azul institucional */
+.cmg-btn-3d--claro {
+  --face: #ffffff;
+  --lip: #9DB6E0;
+  --texto: #083780;
+}
+.cmg-btn-3d--claro:focus-visible {
+  outline-color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cmg-btn-3d { transition: none; }
+}
+
+/* Link de salto para o conteúdo — WCAG 2.4.1 */
+.cmg-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #222222;
+  color: #F7F7F7;
+  padding: 12px 20px;
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 0 0 3px 0;
+}
+.cmg-skip:focus { left: 0; }
+
+/* Navegação: alterna entre desktop e menu compacto */
+.cmg-nav-toggle { display: none !important; }
+@media (max-width: 1080px) {
+  .cmg-nav-desk { display: none !important; }
+  .cmg-nav-toggle { display: inline-flex !important; }
+}
+
+/* Grades de duas colunas viram uma coluna em telas estreitas.
+   Corrige também a pendência de responsividade dos gráficos
+   (docs/04 §4.13, item 12). */
+@media (max-width: 860px) {
+  .cmg-hero-grid,
+  .cmg-graf-grid,
+  .cmg-doc-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .cmg-doc-grid nav { position: static !important; }
+}
+
+/* Tela de entrada: painel institucional acima do formulário em telas estreitas */
+@media (max-width: 900px) {
+  .cmg-entrar-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .cmg-entrar-aside { min-height: auto !important; gap: 26px !important; }
+}
+
+@media (max-width: 720px) {
+  .cmg-disp-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
