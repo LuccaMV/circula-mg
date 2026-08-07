@@ -143,13 +143,13 @@ apresentação rápida — **não é a base para evolução do código**.
 ```
 circula-MG/
 ├── README.md                    # este arquivo
-├── vercel.json                  # rewrite de SPA + cabeçalhos de segurança
 ├── .env.example                 # modelo de variáveis (e o alerta do VITE_)
 ├── circula_mg_prototipo.jsx     # protótipo original de referência
 ├── docs/                        # documentação de produto (8 documentos)
-└── circula-mg-app/
+└── circula-mg-app/              # ← Root Directory na Vercel
     ├── index.html
     ├── vite.config.js
+    ├── vercel.json              # rewrite de SPA + cabeçalhos de segurança
     ├── public/
     │   ├── marca/unifal-mg.png  # logotipo institucional
     │   └── robots.txt

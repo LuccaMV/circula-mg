@@ -64,7 +64,7 @@ npm run dev --prefix circula-mg-app
 | Arquivo | Papel |
 |---|---|
 | `.gitignore` | Impede `node_modules/`, `dist/`, `.env*`, chaves e o `.docx` do projeto de entrarem no repositório |
-| `vercel.json` | Rewrite de SPA (sem ele `/vitrine` dá 404) + CSP e demais cabeçalhos de segurança |
+|  `circula-mg-app/vercel.json` | Rewrite de SPA (sem ele `/vitrine` dá 404) + CSP e demais cabeçalhos de segurança |
 | `.env.example` | Modelo de variáveis, com o alerta de que todo `VITE_*` é público |
 | `public/robots.txt` | Pede para não indexar enquanto os dados forem simulados |
 
